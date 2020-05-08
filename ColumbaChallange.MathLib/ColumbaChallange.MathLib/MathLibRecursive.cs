@@ -1,34 +1,39 @@
 ﻿using System;
-using System.Linq;
 
 namespace ColumbaChallange.MathLib
 {
-    public class MathLibV2 : IMathLib
+    public class MathLibRecursive : IMathLib
     {
         public long Factorial(int n)
         {
             EnsureNStrictlyPositive(n);
-            return n == 0 ? 1 : 
-                Enumerable.Range(1, n)
-                    .Aggregate((acc, i) => acc * i);
+            if (n == 0)
+            {
+                return 1;
+            }
+            return n * Factorial(n - 1);
         }
 
         public long UnevenFactorial(int n)
         {
             EnsureNStrictlyPositive(n);
-            return n == 0 ? 1 : 
-                Enumerable.Range(1, n)
-                    .Where(i => i % 2 == 1)
-                    .Aggregate((acc, i) => acc * i);
+            if (n == 0 || n == 1)
+            {
+                return 1;
+            }
+            return n % 2 == 0 ? UnevenFactorial(n - 1) : n * UnevenFactorial(n - 2);
         }
 
         public long SquareFactorial(int n)
         {
             EnsureNStrictlyPositive(n);
-            return n == 0 ? 1 :
-                Enumerable.Range(1, n)
-                    .Aggregate((acc, i) => acc * i * i);
+            if (n == 0)
+            {
+                return 1;
+            }
+            return n * n * SquareFactorial(n - 1);
         }
+
 
         private void EnsureNStrictlyPositive(int n)
         {

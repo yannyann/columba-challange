@@ -4,43 +4,46 @@ namespace ColumbaChallange.MathLib
 {
     public class MathLib : IMathLib
     {
-        public long Factorial(int n)
+        private IMathLib _mathLib;
+
+        public MathLib(IMathLib mathLib)
         {
-            EnsureNStrictlyPositive(n);
-            if (n == 0)
-            {
-                return 1;
-            }
-            return n * Factorial(n - 1);
+            _mathLib = mathLib;
         }
 
-        public long UnevenFactorial(int n)
+        public static MathLib CreateMathLib(MathLibType type)
         {
-            EnsureNStrictlyPositive(n);
-            if (n == 0 || n == 1)
+            IMathLib mathLibImpl;
+            switch (type)
             {
-                return 1;
+                case MathLibType.Recursive:
+                    mathLibImpl = new MathLibRecursive();
+                    break;
+                case MathLibType.ListFunction:
+                    mathLibImpl = new MathLibListFunction();
+                    break;
+                default:
+                    throw new ArgumentException($"The type {type} is not supported.");
             }
-            return n % 2 == 0 ? UnevenFactorial(n - 1) : n * UnevenFactorial(n - 2);
+
+            return new MathLib(mathLibImpl);
+        }
+
+        public Type MathLibImplType => _mathLib.GetType();
+
+        public long Factorial(int n)
+        {
+            return _mathLib.Factorial(n);
         }
 
         public long SquareFactorial(int n)
         {
-            EnsureNStrictlyPositive(n);
-            if (n == 0)
-            {
-                return 1;
-            }
-            return n * n * SquareFactorial(n - 1);
+            return _mathLib.SquareFactorial(n);
         }
 
-
-        private void EnsureNStrictlyPositive(int n)
+        public long UnevenFactorial(int n)
         {
-            if (n < 0)
-            {
-                throw new ArgumentException($"{nameof(n)} cannot be strictly negative.");
-            }
+            return _mathLib.UnevenFactorial(n);
         }
     }
 }
