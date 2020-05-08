@@ -14,7 +14,15 @@ namespace ColumbaChallange.MathLib
             return n * Factorial(n - 1);
         }
 
-
+        public long UnevenFactorial(int n)
+        {
+            EnsureNStrictlyPositive(n);
+            if (n == 0 || n == 1)
+            {
+                return 1;
+            }
+            return n % 2 == 0 ? UnevenFactorial(n - 1) : n * UnevenFactorial(n - 2);
+        }
 
         private void EnsureNStrictlyPositive(int n)
         {
