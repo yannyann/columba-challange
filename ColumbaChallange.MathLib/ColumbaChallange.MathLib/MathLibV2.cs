@@ -12,6 +12,14 @@ namespace ColumbaChallange.MathLib
                 Enumerable.Range(1, n)
                     .Aggregate((i, j) => i * j);
         }
+
+        public long UnevenFactorial(int n)
+        {
+            EnsureNStrictlyPositive(n);
+            return n == 0 ? 1 : 
+                Enumerable.Range(1, n)
+                    .Where(i => i % 2 == 1)
+                    .Aggregate((i, j) => i * j);
         }
 
         private void EnsureNStrictlyPositive(int n)
