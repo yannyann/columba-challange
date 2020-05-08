@@ -28,7 +28,7 @@ namespace ColumbaChallange.MathLib.Tests
         [InlineData(-1)]
         [InlineData(-10)]
         [InlineData(int.MinValue)]
-        public void ShouldThrowArgumentExceptionIfNStrictlyNegative(int n)
+        public void FactorialShouldThrowArgumentExceptionIfNStrictlyNegative(int n)
         {
             Assert.Throws<ArgumentException>(() => MathLib.Factorial(n));
 
