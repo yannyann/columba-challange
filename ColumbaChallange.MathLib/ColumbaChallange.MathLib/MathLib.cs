@@ -6,8 +6,7 @@ namespace ColumbaChallange.MathLib
     {
         public long Factorial(int n)
         {
-            throw new NotImplementedException();
-            /*if(n < 0)
+            if(n < 0)
             {
                 throw new ArgumentException($"{nameof(n)} cannot be strictly negative.");
             }
@@ -15,7 +14,7 @@ namespace ColumbaChallange.MathLib
             {
                 return 1;
             }
-            return n * Factorial(n - 1);*/
+            return n * Factorial(n - 1);
         }
     }
 }
