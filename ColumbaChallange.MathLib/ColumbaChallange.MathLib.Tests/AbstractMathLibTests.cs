@@ -15,7 +15,6 @@ namespace ColumbaChallange.MathLib.Tests
         [Theory]
         [InlineData(0, 1)]
         [InlineData(1, 1)]
-        //https://www.google.com/search?q=factorial+10&rlz=1C1CHBF_frDE882DE882&oq=factorial+10+&aqs=chrome..69i57.6525j0j7&sourceid=chrome&ie=UTF-8
         [InlineData(10, 3628800)]
         public void ShouldCalculateFactorial(int n, int expected)
         {
@@ -31,6 +30,33 @@ namespace ColumbaChallange.MathLib.Tests
         public void FactorialShouldThrowArgumentExceptionIfNStrictlyNegative(int n)
         {
             Assert.Throws<ArgumentException>(() => MathLib.Factorial(n));
+
+        }
+
+
+        [Theory]
+        //WARNING unevenFactorial(0) has been defined as 1 arbritrary and could evolve in the future.
+        [InlineData(0, 1)]
+        [InlineData(1, 1)]
+        [InlineData(2, 1)]
+        [InlineData(3, 3)]
+        [InlineData(4, 3)]
+        [InlineData(9, 945)]
+        [InlineData(10, 945)]
+        public void ShouldCalculateUnevenFactorial(int n, int expected)
+        {
+            var result = MathLib.UnevenFactorial(n);
+
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData(-1)]
+        [InlineData(-10)]
+        [InlineData(int.MinValue)]
+        public void UnevenFactorialShouldThrowArgumentExceptionIfNStrictlyNegative(int n)
+        {
+            Assert.Throws<ArgumentException>(() => MathLib.UnevenFactorial(n));
 
         }
     }
