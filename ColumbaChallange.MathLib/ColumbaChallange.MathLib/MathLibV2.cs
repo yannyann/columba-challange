@@ -8,7 +8,10 @@ namespace ColumbaChallange.MathLib
         public long Factorial(int n)
         {
             EnsureNStrictlyPositive(n);
-            return n == 0 ? 1 : Enumerable.Range(1, n).Aggregate((i, j) => i * j);
+            return n == 0 ? 1 : 
+                Enumerable.Range(1, n)
+                    .Aggregate((i, j) => i * j);
+        }
         }
 
         private void EnsureNStrictlyPositive(int n)
