@@ -3,7 +3,7 @@ using Xunit;
 
 namespace ColumbaChallange.MathLib.Tests
 {
-    public class AbstractMathLibTests
+    public abstract class AbstractMathLibTests
     {
         protected readonly IMathLib MathLib;
 
@@ -18,7 +18,7 @@ namespace ColumbaChallange.MathLib.Tests
         [InlineData(10, 3628800)]
         public void Test1(int n, int expected)
         {
-            var result = _mathLib.Factorial(n);
+            var result = MathLib.Factorial(n);
 
             Assert.Equal(expected, result);
         }
