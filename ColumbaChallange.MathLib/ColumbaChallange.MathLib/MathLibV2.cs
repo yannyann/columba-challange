@@ -10,7 +10,7 @@ namespace ColumbaChallange.MathLib
             EnsureNStrictlyPositive(n);
             return n == 0 ? 1 : 
                 Enumerable.Range(1, n)
-                    .Aggregate((i, j) => i * j);
+                    .Aggregate((acc, i) => acc * i);
         }
 
         public long UnevenFactorial(int n)
@@ -19,7 +19,7 @@ namespace ColumbaChallange.MathLib
             return n == 0 ? 1 : 
                 Enumerable.Range(1, n)
                     .Where(i => i % 2 == 1)
-                    .Aggregate((i, j) => i * j);
+                    .Aggregate((acc, i) => acc * i);
         }
 
         public long SquareFactorial(int n)
