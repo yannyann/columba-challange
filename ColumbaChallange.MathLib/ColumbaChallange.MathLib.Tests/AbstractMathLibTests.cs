@@ -30,9 +30,7 @@ namespace ColumbaChallange.MathLib.Tests
         public void FactorialShouldThrowArgumentExceptionIfNStrictlyNegative(int n)
         {
             Assert.Throws<ArgumentException>(() => MathLib.Factorial(n));
-
         }
-
 
         [Theory]
         //WARNING unevenFactorial(0) has been defined as 1 arbritrary and could evolve in the future.
@@ -59,7 +57,6 @@ namespace ColumbaChallange.MathLib.Tests
         public void UnevenFactorialShouldThrowArgumentExceptionIfNStrictlyNegative(int n)
         {
             Assert.Throws<ArgumentException>(() => MathLib.UnevenFactorial(n));
-
         }
 
         [Theory]
@@ -84,7 +81,6 @@ namespace ColumbaChallange.MathLib.Tests
         public void SquareFactorialShouldThrowArgumentExceptionIfNStrictlyNegative(int n)
         {
             Assert.Throws<ArgumentException>(() => MathLib.SquareFactorial(n));
-
         }
     }
 }
