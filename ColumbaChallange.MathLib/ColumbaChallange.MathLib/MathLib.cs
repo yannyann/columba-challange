@@ -24,6 +24,12 @@ namespace ColumbaChallange.MathLib
             return n % 2 == 0 ? UnevenFactorial(n - 1) : n * UnevenFactorial(n - 2);
         }
 
+        public long SquareFactorial(int n)
+        {
+            throw new NotImplementedException();
+        }
+
+
         private void EnsureNStrictlyPositive(int n)
         {
             if (n < 0)

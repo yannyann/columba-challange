@@ -8,5 +8,6 @@ namespace ColumbaChallange.MathLib
     {
         long Factorial(int n);
         long UnevenFactorial(int n);
+        long SquareFactorial(int n);
     }
 }

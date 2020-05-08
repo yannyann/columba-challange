@@ -22,6 +22,11 @@ namespace ColumbaChallange.MathLib
                     .Aggregate((i, j) => i * j);
         }
 
+        public long SquareFactorial(int n)
+        {
+            throw new NotImplementedException();
+        }
+
         private void EnsureNStrictlyPositive(int n)
         {
             if (n < 0)
