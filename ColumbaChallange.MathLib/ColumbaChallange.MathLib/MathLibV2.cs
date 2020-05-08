@@ -24,7 +24,10 @@ namespace ColumbaChallange.MathLib
 
         public long SquareFactorial(int n)
         {
-            throw new NotImplementedException();
+            EnsureNStrictlyPositive(n);
+            return n == 0 ? 1 :
+                Enumerable.Range(1, n)
+                    .Aggregate((acc, i) => acc * i * i);
         }
 
         private void EnsureNStrictlyPositive(int n)

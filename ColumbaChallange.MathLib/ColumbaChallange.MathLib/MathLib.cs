@@ -26,7 +26,12 @@ namespace ColumbaChallange.MathLib
 
         public long SquareFactorial(int n)
         {
-            throw new NotImplementedException();
+            EnsureNStrictlyPositive(n);
+            if (n == 0)
+            {
+                return 1;
+            }
+            return n * n * SquareFactorial(n - 1);
         }
 
 
