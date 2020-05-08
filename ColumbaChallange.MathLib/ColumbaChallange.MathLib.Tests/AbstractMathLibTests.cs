@@ -22,5 +22,15 @@ namespace ColumbaChallange.MathLib.Tests
 
             Assert.Equal(expected, result);
         }
+
+        [Theory]
+        [InlineData(-1)]
+        [InlineData(-10)]
+        [InlineData(int.MinValue)]
+        public void ShouldThrowArgumentExceptionIfNStrictlyNegative(int n)
+        {
+            Assert.Throws<ArgumentException>(() => MathLib.Factorial(n));
+
+        }
     }
 }
